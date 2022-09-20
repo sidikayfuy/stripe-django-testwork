@@ -1,0 +1,12 @@
+{% extends 'stripeapp/index.html' %}
+
+{% block content %}
+    <h1 id="name">Название: {{ item.name }}</h1>
+    <h1 id="desc">Описание: {{ item.description }}</h1>
+    <h1 id="price">Цена: {{ item.price|slugify|slice:":-2" }},{{ item.price|slugify|slice:"-2:" }}</h1>
+    <h1 id="id">Артикул: {{ item.id }}</h1>
+    <h1 style="display: inline-block;">Количество: </h1>
+    <input type="number" id="count" style="display: inline-block;">
+    <button type="submit" id="buy" style="display: block;">Buy</button>
+
+{% endblock %}

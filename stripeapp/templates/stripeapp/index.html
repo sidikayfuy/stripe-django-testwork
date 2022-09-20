@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test work</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1><a href="{% url 'index'%}">Главная</a></h1>
+{% block content %}
+
+
+    <h2>Товары</h2>
+    {% for i in items %}
+        <div>
+            <a class="btn btn-info" href="{% url 'item' pk=i.id%}">{{ i.name }}</a>
+        </div>
+    {% endfor %}
+    <a class="btn btn-primary" href="{% url 'makeorder'%}"><h1>Создать заказ</h1></a>
+{% endblock %}
+</body>
+</html>
